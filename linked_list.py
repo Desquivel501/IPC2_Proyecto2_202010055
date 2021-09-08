@@ -62,9 +62,18 @@ class LinkedList:
         aux = self.head
         while aux is not None:
             print("Nombre Producto: ", str(aux.valor.nombre))
-            print("-> Elaboracion: ", str(aux.valor.elaboracion))
+            print("-> Elaboracion: ", str(aux.valor.elaboracion.printElaboracion()))
             print("")
             aux = aux.siguiente
+    
+    def printElaboracion(self):
+        aux = self.head
+        pasos = ""
+        while  aux is not None:
+            pasos += aux.valor
+            pasos += " "
+            aux = aux.siguiente
+        return pasos
     
     
 
