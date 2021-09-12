@@ -48,16 +48,10 @@ class LinkedList:
         return aux
     
     
-    def printLinea(self):
-        aux = self.head
-        while aux is not None:
-            print("Linea Numero: ", str(aux.valor.numero))
-            print("-> Numero Componentes: ", str(aux.valor.componentes))
-            print("-> Tiempo: ", str(aux.valor.tiempo))
-            print("")
-            aux = aux.siguiente
-    
-    
+class listaProductos(LinkedList):
+    def __init__(self):
+        LinkedList.__init__(self)
+        
     def printProducto(self):
         aux = self.head
         while aux is not None:
@@ -65,6 +59,25 @@ class LinkedList:
             print("-> Elaboracion: ", str(aux.valor.elaboracion.printElaboracion()))
             print("")
             aux = aux.siguiente
+      
+
+class listaLineas(LinkedList):
+    def __init__(self):
+        LinkedList.__init__(self)
+    
+    def printLinea(self):
+        aux = self.head
+        while aux is not None:
+            print("Linea Numero: ", str(aux.valor.numero))
+            print("-> Numero Componentes: ", str(aux.valor.componentes))
+            print("-> Tiempo: ", str(aux.valor.tiempo))
+            print("")
+            aux = aux.siguiente           
+                
+
+class listaInstrucciones(LinkedList):
+    def __init__(self):
+        LinkedList.__init__(self)
     
     def printElaboracion(self):
         aux = self.head
@@ -75,8 +88,3 @@ class LinkedList:
             aux = aux.siguiente
         return pasos
     
-    
-
-            
-                
-        

@@ -27,3 +27,18 @@ class Cola:
      
     def peek(self):
         return self.head
+    
+    def empty(self):
+        if self.head is None:
+            return True
+        return False
+    
+class colaIntrucciones(Cola):
+    def __init__(self, lineaProduccion, producto):
+        Cola.__init__(self)
+        self.lineaProduccion = lineaProduccion
+        self.producto = producto
+        self.componente_actual = 0
+        self.parar = False
+        self.ensamblando = False
+        

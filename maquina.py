@@ -1,3 +1,5 @@
+
+
 class Maquina:
     
     def __init__(self, no_lineas, lineas, productos):
@@ -23,3 +25,11 @@ class Maquina:
         self.lineas.printLinea()
         print("ListadoProductos: ")
         self.productos.printProducto()
+    
+    def encender(self):
+        aux = self.productos.head
+        while aux is not None:
+            aux.valor.algoritmo()
+            aux = aux.siguiente
+        
+    

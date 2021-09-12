@@ -5,5 +5,4 @@ class Linea_de_Produccion:
         self.componentes = componentes
         self.tiempo = tiempo
         
-    def get_numero(self):
-        return self.numero
+        
