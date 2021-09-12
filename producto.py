@@ -47,12 +47,12 @@ class Producto:
                         continue
                 
                 elif lineaActual.valor.parar and lineaActual.valor.lineaProduccion != int(ensambleActual.valor):
-                    print("Linea: ", str(lineaActual.valor.lineaProduccion) ," - Detenida")
+                    print("Linea: ", str(lineaActual.valor.lineaProduccion) ," -> Detenida")
                     lineaActual = lineaActual.siguiente
                     continue
                 
                 elif wait and lineaActual.valor.lineaProduccion != int(ensambleActual.valor):
-                    print("Linea: ", str(lineaActual.valor.lineaProduccion) ," - Detenida")
+                    print("Linea: ", str(lineaActual.valor.lineaProduccion) ," -> Detenida")
                     lineaActual = lineaActual.siguiente
                     continue
                 
@@ -65,7 +65,7 @@ class Producto:
                     
                     if lineaActual.valor.componente_actual < objetivo_int:
                         lineaActual.valor.componente_actual += 1
-                        print("Linea: ", str(lineaActual.valor.lineaProduccion) ," - Mover Brazo - Componente ", str(lineaActual.valor.componente_actual))
+                        print("Linea: ", str(lineaActual.valor.lineaProduccion) ," - Mover Brazo -> Componente ", str(lineaActual.valor.componente_actual))
                             
                         if lineaActual.valor.componente_actual == objetivo_int:
                             lineaActual.valor.parar = True
@@ -73,7 +73,7 @@ class Producto:
                                                         
                     elif lineaActual.valor.componente_actual > objetivo_int:
                         lineaActual.valor.componente_actual -= 1
-                        print("Linea: ", str(lineaActual.valor.lineaProduccion) ," - Mover Brazo - Componente ", str(lineaActual.valor.componente_actual))
+                        print("Linea: ", str(lineaActual.valor.lineaProduccion) ," - Mover Brazo -> Componente ", str(lineaActual.valor.componente_actual))
                             
                         if lineaActual.valor.componente_actual == objetivo_int:
                             lineaActual.valor.parar = True
@@ -81,26 +81,21 @@ class Producto:
                             
                     elif lineaActual.valor.componente_actual == objetivo_int:
                         lineaActual.valor.dequeue()
-                        print("Linea: ", str(lineaActual.valor.lineaProduccion) ," - Ensamblado - Componente ", str(lineaActual.valor.componente_actual))
+                        print("Linea: ", str(lineaActual.valor.lineaProduccion) ," - Ensamblado -> Componente ", str(lineaActual.valor.componente_actual))
                 
                 
-                elif lineaActual.valor.parar and lineaActual.valor.lineaProduccion == int(ensambleActual.valor):
-                    if lineaActual.valor.lineaProduccion == int(ensambleActual.valor):
+                elif lineaActual.valor.parar and lineaActual.valor.lineaProduccion == int(ensambleActual.valor): 
                         
+                    lineaActual.valor.ensamblando -= 1
                         
-                        lineaActual.valor.ensamblando -= 1
+                    if int(lineaActual.valor.ensamblando) == 0:
+                        lineaActual.valor.dequeue()
+                        print("Linea: ", str(lineaActual.valor.lineaProduccion) ," - Ensamblando -> Componente ", str(lineaActual.valor.componente_actual))
+                        lineaActual.valor.parar = False
+                        done = True
                         
-                        if int(lineaActual.valor.ensamblando) == 0:
-                            lineaActual.valor.dequeue()
-                            print("Linea: ", str(lineaActual.valor.lineaProduccion) ," - Ensamblando - Componente ", str(lineaActual.valor.componente_actual))
-                            lineaActual.valor.parar = False
-                            done = True
-                        
-                        else:
-                            print("Linea: ", str(lineaActual.valor.lineaProduccion) ," - Ensamblando - Componente ", str(lineaActual.valor.componente_actual))
-                            
                     else:
-                        print("Linea: ", str(lineaActual.valor.lineaProduccion) ," - Detenida")
+                        print("Linea: ", str(lineaActual.valor.lineaProduccion) ," - Ensamblando -> Componente ", str(lineaActual.valor.componente_actual))
                 
                 lineaActual = lineaActual.siguiente
                     
