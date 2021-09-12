@@ -1,7 +1,7 @@
 from producto import Producto
 import xml.etree.ElementTree as ET
 from tkinter.filedialog import askopenfilename
-from linked_list import LinkedList, listaProductos, listaLineas
+from linked_list import listaProductos, listaLineas
 from linea_produccion import Linea_de_Produccion as LP
 from producto import Producto
 from maquina import Maquina
@@ -25,8 +25,9 @@ if __name__ == '__main__':
             productos.insertar(Producto(j.find("nombre").text, j.find("elaboracion").text))
             
     Maquina_Actual = Maquina(no_lineas,lineas,productos)
-    Maquina_Actual.encender()
 
     # Maquina_Actual.printMaquina()
+    
+    Maquina_Actual.encender()
     
     

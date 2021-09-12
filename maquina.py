@@ -29,7 +29,7 @@ class Maquina:
     def encender(self):
         aux = self.productos.head
         while aux is not None:
-            aux.valor.algoritmo()
+            aux.valor.algoritmo(self.lineas)
             aux = aux.siguiente
         
     

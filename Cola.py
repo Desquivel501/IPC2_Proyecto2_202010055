@@ -40,5 +40,6 @@ class colaIntrucciones(Cola):
         self.producto = producto
         self.componente_actual = 0
         self.parar = False
-        self.ensamblando = False
+        self.ensamblando = 0
+        self.costo = 1
         
