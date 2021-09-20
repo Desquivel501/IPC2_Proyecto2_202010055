@@ -6,6 +6,8 @@ class Nodo:
 class LinkedList:
     def __init__(self):
         self.head = None
+        self.largo = 0
+        self.x = None
     
     def insertar(self, valor_nuevo):
         nuevo = Nodo(valor_nuevo)
@@ -16,6 +18,7 @@ class LinkedList:
         while(aux.siguiente != None):
             aux = aux.siguiente
         aux.siguiente = nuevo
+        self.largo += 1
 
 
     def remover(self, indice):
@@ -32,6 +35,7 @@ class LinkedList:
         borrar = pre.siguiente
         aft = borrar.siguiente
         pre.siguiente = aft
+        self.largo -= 1
         return borrar
     
     
@@ -59,6 +63,8 @@ class listaProductos(LinkedList):
             print("-> Elaboracion: ", str(aux.valor.elaboracion))
             print("")
             aux = aux.siguiente
+            
+    
       
 
 class listaLineas(LinkedList):
