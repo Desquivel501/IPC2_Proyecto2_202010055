@@ -31,9 +31,9 @@ def leerMaquina():
  
     frame_labels = tk.Frame(canvas1)
     
-    label = tk.Label(frame_labels, text="Datos Maquina", font = "Arial 16 bold", anchor="w").grid(row=row,column=0, sticky="w")
+    label = tk.Label(frame_labels, text="Datos Maquina", font = "Arial 14 bold", anchor="w").grid(row=row,column=0, sticky="w")
     row += 1
-    label = tk.Label(frame_labels, text=("Numero de lineas: " + str(no_lineas)), font = "Arial 12 bold").grid(row=row,column=0, sticky="w")
+    label = tk.Label(frame_labels, text=("Numero de lineas: " + str(no_lineas)), font = "Arial 11 bold").grid(row=row,column=0, sticky="w")
     row += 1
     
     label = tk.Label(frame_labels, text=" ").grid(row=row,column=0, sticky="w")
@@ -43,11 +43,11 @@ def leerMaquina():
         for j in linea.findall("LineaProduccion"):
             lineas.insertar( LP(j.find("Numero").text, j.find("CantidadComponentes").text, j.find("TiempoEnsamblaje").text) )
             
-            label = tk.Label(frame_labels, text=("Linea de Produccion " + str(j.find("Numero").text)), font = "Arial 12 bold").grid(row=row,column=0, sticky="w")
+            label = tk.Label(frame_labels, text=("Linea de Produccion " + str(j.find("Numero").text)), font = "Arial 11 bold").grid(row=row,column=0, sticky="w")
             row += 1
-            label = tk.Label(frame_labels, text= ("-> Cantidad componentes: " + str(j.find("CantidadComponentes").text)), font = "Arial 12 bold").grid(row=row,column=0, sticky="w")
+            label = tk.Label(frame_labels, text= ("-> Cantidad componentes: " + str(j.find("CantidadComponentes").text)), font = "Arial 11 bold").grid(row=row,column=0, sticky="w")
             row += 1
-            label = tk.Label(frame_labels, text= ("-> Tiempo de Ensamblaje: " + str(j.find("TiempoEnsamblaje").text) + " s"), font = "Arial 12 bold").grid(row=row,column=0, sticky="w")
+            label = tk.Label(frame_labels, text= ("-> Tiempo de Ensamblaje: " + str(j.find("TiempoEnsamblaje").text) + " s"), font = "Arial 11 bold").grid(row=row,column=0, sticky="w")
             row += 1
     
     label = tk.Label(frame_labels, text=" ").grid(row=row,column=0, sticky="w")
@@ -56,9 +56,9 @@ def leerMaquina():
     for producto in root.findall("ListadoProductos"):   
         for j in producto.findall("Producto"):
             productos.insertar(Producto(j.find("nombre").text, j.find("elaboracion").text))
-            label = tk.Label(frame_labels, text=("Nombre del Producto: " + str(j.find("nombre").text)), font = "Arial 12 bold").grid(row=row,column=0, sticky="w")
+            label = tk.Label(frame_labels, text=("Nombre del Producto: " + str(j.find("nombre").text)), font = "Arial 11 bold").grid(row=row,column=0, sticky="w")
             row += 1
-            label = tk.Label(frame_labels, text= ("-> Pasos: " + str(j.find("elaboracion").text)), font = "Arial 12 bold").grid(row=row,column=0, sticky="w")
+            label = tk.Label(frame_labels, text= ("-> Pasos: " + str(j.find("elaboracion").text)), font = "Arial 11 bold").grid(row=row,column=0, sticky="w")
             row += 1
             
     canvas1.create_window((0,0), window=frame_labels, anchor=tk.NW)
@@ -213,10 +213,10 @@ def iniciarSimulacion():
            
 def info():
     texto = '''Derek Esquivel Diaz
-Carnet: 202010055
-Introduccion a la programacion y computacion 2 "B"
-Ingenieria en Ciencias y Sistemas
-4to Semestre'''
+                Carnet: 202010055
+                Introduccion a la programacion y computacion 2 "B"
+                Ingenieria en Ciencias y Sistemas
+                4to Semestre'''
     messagebox.showinfo(message=texto, title="Acerca de...")
 
 
