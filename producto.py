@@ -97,15 +97,16 @@ class Producto:
                         lsPasoActual.insertar(("Ensamblando -> Componente " + str(lineaActual.valor.componente_actual)), str(lineaActual.valor.lineaProduccion))
                         
                         done = True
-                        lineaActual.valor.parar = False
-                        
-                        # test = lineaActual.valor.peek()
-                        # test_int = int(test.valor.replace('C',""))
-                        
-                        # if (test_int == lineaActual.valor.componente_actual):
-                        #     lineaActual.valor.parar = True
-                        # else:
-                        #     lineaActual.valor.parar = False
+   
+                        test = lineaActual.valor.peek()
+                        if test is not None:
+                            test_int = int(test.valor.replace('C',""))
+                            
+                            if (test_int == lineaActual.valor.componente_actual):
+                                lineaActual.valor.parar = True
+                                lineaActual.valor.ensamblando = int(lineaActual.valor.costo)
+                            else:
+                                lineaActual.valor.parar = False
                         
                     else:
                         print("Linea: ", str(lineaActual.valor.lineaProduccion) ," - Ensamblando -> Componente ", str(lineaActual.valor.componente_actual))
