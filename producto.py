@@ -1,4 +1,5 @@
 from linked_list import LinkedList
+from linked_list import listaPasosLL
 from analizador import Analizador
 import re
 
@@ -7,11 +8,9 @@ class Producto:
     def __init__(self, nombre, elaboracion):
         self.nombre = nombre
         self.elaboracion = elaboracion
-        
-        
+
         scanner = Analizador(self.nombre)
         self.listaElaboracion = scanner.analizar(elaboracion)
-
 
     
     def algoritmo(self, lineas):
@@ -28,9 +27,9 @@ class Producto:
         segundo = 1
 
         while terminado is False:
-            lsPasoActual = LinkedList()
+            lsPasoActual = listaPasosLL()
             print("Segundo: ", str(segundo))
-            lsPasoActual.insertar(str(segundo))
+            lsPasoActual.insertar(str(segundo), None)
             
             lineaActual = self.listaElaboracion.head
             done = False
@@ -44,20 +43,20 @@ class Producto:
             
             while lineaActual is not None:
                 if lineaActual.valor.empty():
-                        print("Linea: ", str(lineaActual.valor.lineaProduccion) ," - Operacion Concluida")
-                        lsPasoActual.insertar("Operacion Concluida")
-                        lineaActual = lineaActual.siguiente
-                        continue
+                    print("Linea: ", str(lineaActual.valor.lineaProduccion) ," - Operacion Concluida")
+                    lsPasoActual.insertar("Operacion Concluida", str(lineaActual.valor.lineaProduccion))
+                    lineaActual = lineaActual.siguiente
+                    continue
                 
                 elif lineaActual.valor.parar and lineaActual.valor.lineaProduccion != int(ensambleActual.valor):
                     print("Linea: ", str(lineaActual.valor.lineaProduccion) ," -> Detenida")
-                    lsPasoActual.insertar("Detenida")
+                    lsPasoActual.insertar("Detenida", str(lineaActual.valor.lineaProduccion))
                     lineaActual = lineaActual.siguiente
                     continue
                 
                 elif wait and lineaActual.valor.lineaProduccion != int(ensambleActual.valor):
                     print("Linea: ", str(lineaActual.valor.lineaProduccion) ," -> Detenida")
-                    lsPasoActual.insertar("Detenida")
+                    lsPasoActual.insertar("Detenida", str(lineaActual.valor.lineaProduccion))
                     lineaActual = lineaActual.siguiente
                     continue
                 
@@ -71,7 +70,7 @@ class Producto:
                     if lineaActual.valor.componente_actual < objetivo_int:
                         lineaActual.valor.componente_actual += 1
                         print("Linea: ", str(lineaActual.valor.lineaProduccion) ," - Mover Brazo -> Componente ", str(lineaActual.valor.componente_actual))
-                        lsPasoActual.insertar("Mover Brazo -> Componente " + str(lineaActual.valor.componente_actual))
+                        lsPasoActual.insertar(("Mover Brazo -> Componente " + str(lineaActual.valor.componente_actual)), str(lineaActual.valor.lineaProduccion))
                             
                         if lineaActual.valor.componente_actual == objetivo_int:
                             lineaActual.valor.parar = True
@@ -80,27 +79,25 @@ class Producto:
                     elif lineaActual.valor.componente_actual > objetivo_int:
                         lineaActual.valor.componente_actual -= 1
                         print("Linea: ", str(lineaActual.valor.lineaProduccion) ," - Mover Brazo -> Componente ", str(lineaActual.valor.componente_actual))
-                        lsPasoActual.insertar("Mover Brazo -> Componente " + str(lineaActual.valor.componente_actual))
+                        lsPasoActual.insertar(("Mover Brazo -> Componente " + str(lineaActual.valor.componente_actual)), str(lineaActual.valor.lineaProduccion))
                             
                         if lineaActual.valor.componente_actual == objetivo_int:
                             lineaActual.valor.parar = True
                             lineaActual.valor.ensamblando = int(lineaActual.valor.costo)
                             
 
-                elif lineaActual.valor.parar and lineaActual.valor.lineaProduccion == int(ensambleActual.valor): 
-                        
+                elif lineaActual.valor.parar and lineaActual.valor.lineaProduccion == int(ensambleActual.valor):    
                     lineaActual.valor.ensamblando -= 1
-                        
                     if int(lineaActual.valor.ensamblando) == 0:
                         lineaActual.valor.dequeue()
                         print("Linea: ", str(lineaActual.valor.lineaProduccion) ," - Ensamblando -> Componente ", str(lineaActual.valor.componente_actual))
-                        lsPasoActual.insertar("Ensamblando -> Componente " + str(lineaActual.valor.componente_actual))
+                        lsPasoActual.insertar(("Ensamblando -> Componente " + str(lineaActual.valor.componente_actual)), str(lineaActual.valor.lineaProduccion))
                         lineaActual.valor.parar = False
                         done = True
                         
                     else:
                         print("Linea: ", str(lineaActual.valor.lineaProduccion) ," - Ensamblando -> Componente ", str(lineaActual.valor.componente_actual))
-                        lsPasoActual.insertar("Ensamblando -> Componente " + str(lineaActual.valor.componente_actual))
+                        lsPasoActual.insertar(("Ensamblando -> Componente " + str(lineaActual.valor.componente_actual)), str(lineaActual.valor.lineaProduccion))
                 
                 lineaActual = lineaActual.siguiente
                     
@@ -120,7 +117,7 @@ class Producto:
                 terminado = True
                 
             listaPasos.insertar(lsPasoActual)
-            
+
         return listaPasos
             
             
@@ -137,16 +134,17 @@ class Producto:
     
     
     def getTiempo(self, lineas):
-        objetoLinea = lineas.head
+        # objetoLinea = lineas.head
         lineaActual = self.listaElaboracion.head
         
         while lineaActual is not None:
+            objetoLinea = lineas.head
             while objetoLinea is not None:
                 if int(objetoLinea.valor.numero) == int(lineaActual.valor.lineaProduccion):
                     lineaActual.valor.costo = objetoLinea.valor.tiempo
                 objetoLinea = objetoLinea.siguiente
             lineaActual = lineaActual.siguiente
-
-                      
+            
+                              
             
     

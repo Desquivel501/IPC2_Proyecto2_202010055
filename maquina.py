@@ -1,4 +1,6 @@
 import copy
+import re
+import os
 from linked_list import LinkedList
 
 class Maquina:
@@ -56,6 +58,50 @@ class Maquina:
         self.productos = estadoInicial
         return proceso
         
-        
-        
     
+    def reporteGraphviz(self, producto):
+        aux = self.productos.head
+        estadoInicial = copy.deepcopy(self.productos)
+        while aux is not None:
+            if aux.valor.nombre == producto:
+                break
+            aux = aux.siguiente
+        
+        pasos = LinkedList()
+        
+        lista_re = re.findall(r"L\w+", aux.valor.elaboracion)
+        i = 0
+        while i < len(lista_re):
+            pasos.insertar(lista_re[i].replace("p",""))  
+            i += 1
+            
+        temp = pasos.head
+        cont = 0
+        
+        graphviz = '''
+        digraph L{
+            node[shape=box]
+
+            subgraph cluster_p{
+                label= "Pasos: ''' + producto +  ''' "
+
+                '''
+        ancla = "nodo0"
+        while temp is not None:
+            graphviz += '''nodo'''+str(cont)+'''[label = "'''+temp.valor+'''"]\n  '''
+            if cont != 0:
+                graphviz += "nodo"+str(cont-1)+"->"+"nodo"+str(cont) + '[label="        "]\n'
+                graphviz += "{rank=same; "+ancla+"; nodo"+str(cont) + "}\n"
+            cont +=1
+            temp = temp.siguiente
+        
+        graphviz += '''        
+            }
+        }
+        '''
+        archivo = open('Reportes\\grafico.dot',"w+")
+        archivo.write(graphviz)
+        print("Archivo generado en: ", os.getcwd() +"\\Reportes\\grafico.png")
+        archivo.close()
+
+        os.system('dot -Tpng Reportes\\grafico.dot -o Reportes\\grafico.png')

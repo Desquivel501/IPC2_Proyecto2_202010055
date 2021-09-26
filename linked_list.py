@@ -2,6 +2,7 @@ class Nodo:
     def __init__(self, valor = None ):
         self.valor = valor
         self.siguiente = None
+        linea = None
 
 class LinkedList:
     def __init__(self):
@@ -51,6 +52,41 @@ class LinkedList:
                 return None
         return aux
     
+    def insertarEnOrden(self, valor):
+        nuevo = Nodo(valor)
+        
+        if self.head == None:
+            self.head = nuevo
+            return
+        
+        pre = self.head
+        
+        if  pre.siguiente is None:
+            if (int(valor.lineaProduccion) < int(self.head.valor.lineaProduccion)):
+                nuevo.siguiente = self.head
+                self.head = nuevo
+                self.largo += 1
+                return
+            else:
+                self.insertar(valor)
+                return
+        
+        
+        while pre.siguiente is not None:
+            if (int(valor.lineaProduccion) < int(self.head.valor.lineaProduccion)):
+                nuevo.siguiente = self.head
+                self.head = nuevo
+                self.largo += 1
+                return
+            
+            elif (int(valor.lineaProduccion) > int(pre.valor.lineaProduccion)) and (int(valor.lineaProduccion) < int(pre.siguiente.valor.lineaProduccion)):
+                nuevo.siguiente = pre.siguiente
+                pre.siguiente = nuevo
+                self.largo += 1
+                return
+            pre = pre.siguiente
+        self.insertar(valor)
+    
     
 class listaProductos(LinkedList):
     def __init__(self):
@@ -64,8 +100,26 @@ class listaProductos(LinkedList):
             print("")
             aux = aux.siguiente
             
-    
-      
+            
+class listaPasosLL:
+    def __init__(self):
+        self.head = None
+        self.largo = 0
+        self.x = None
+        
+    def insertar(self, valor_nuevo, linea):
+        nuevo = Nodo(valor_nuevo)
+        nuevo.linea = linea
+        if self.head == None:
+            self.head = nuevo
+            return
+        aux = self.head
+        while(aux.siguiente != None):
+            aux = aux.siguiente
+        aux.siguiente = nuevo
+        self.largo += 1
+        
+        
 
 class listaLineas(LinkedList):
     def __init__(self):

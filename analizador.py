@@ -27,6 +27,8 @@ class Analizador:
                 self.estado2(cadena[self.i])
             self.i += 1
         
+        self.lineaOrdenada = LinkedList()
+        
         return self.IntruccionesPorLinea
                 
 
@@ -73,7 +75,7 @@ class Analizador:
                     found = True
                 aux = aux.siguiente
             if found is False:
-                self.IntruccionesPorLinea.insertar(self.lineaActual)
+                self.IntruccionesPorLinea.insertarEnOrden(self.lineaActual)
                
             self.buffer = ""
             self.columna +=1   
