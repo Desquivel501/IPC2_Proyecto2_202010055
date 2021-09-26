@@ -71,7 +71,6 @@ class ReporteHtml:
         cwd = os.getcwd()
         archivo = open('Reportes\\Reporte.html',"w+")
         archivo.write(html)
-        print("Se ha generado el reporte en: " + cwd + "\\Reportes\\Reporte.html")
         archivo.close()
     
 class reporteXml:
@@ -127,13 +126,10 @@ class reporteXml:
                 
             fila = fila.siguiente
 
-        
-        
         try:
             cwd = os.getcwd()
             filename = cwd + '\\Reportes\\Reporte.xml'
             tree.write(filename, pretty_print=True)
-            print("El archivo se ha generado exitosamente")
         except Exception as e:
             print("ERROR: ",e)
             

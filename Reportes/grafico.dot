@@ -9,7 +9,7 @@
   nodo1[label = "L1C4"]
   nodo0->nodo1[label="        "]
 {rank=same; nodo0; nodo1}
-nodo2[label = "L2C6"]
+nodo2[label = "L1C5"]
   nodo1->nodo2[label="        "]
 {rank=same; nodo0; nodo2}
 nodo3[label = "L1C3"]
@@ -18,6 +18,12 @@ nodo3[label = "L1C3"]
 nodo4[label = "L2C4"]
   nodo3->nodo4[label="        "]
 {rank=same; nodo0; nodo4}
+nodo5[label = "L3C1"]
+  nodo4->nodo5[label="        "]
+{rank=same; nodo0; nodo5}
+nodo6[label = "L1C1"]
+  nodo5->nodo6[label="        "]
+{rank=same; nodo0; nodo6}
         
             }
         }

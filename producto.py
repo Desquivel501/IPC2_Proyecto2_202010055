@@ -37,11 +37,12 @@ class Producto:
             
             temp = self.listaElaboracion.head
             while temp is not None:
-                if temp.valor.parar:
+                if temp.valor.parar and (temp.valor.lineaProduccion == int(ensambleActual.valor)):
                     wait = True
                 temp = temp.siguiente
             
             while lineaActual is not None:
+                
                 if lineaActual.valor.empty():
                     print("Linea: ", str(lineaActual.valor.lineaProduccion) ," - Operacion Concluida")
                     lsPasoActual.insertar("Operacion Concluida", str(lineaActual.valor.lineaProduccion))
@@ -49,13 +50,13 @@ class Producto:
                     continue
                 
                 elif lineaActual.valor.parar and lineaActual.valor.lineaProduccion != int(ensambleActual.valor):
-                    print("Linea: ", str(lineaActual.valor.lineaProduccion) ," -> Detenida")
+                    print("Linea: ", str(lineaActual.valor.lineaProduccion) ," -> Detenida1")
                     lsPasoActual.insertar("Detenida", str(lineaActual.valor.lineaProduccion))
                     lineaActual = lineaActual.siguiente
                     continue
                 
-                elif wait and lineaActual.valor.lineaProduccion != int(ensambleActual.valor):
-                    print("Linea: ", str(lineaActual.valor.lineaProduccion) ," -> Detenida")
+                elif wait and (lineaActual.valor.lineaProduccion != int(ensambleActual.valor)):                                   
+                    print("Linea: ", str(lineaActual.valor.lineaProduccion) ," -> Detenida2")
                     lsPasoActual.insertar("Detenida", str(lineaActual.valor.lineaProduccion))
                     lineaActual = lineaActual.siguiente
                     continue
@@ -73,8 +74,10 @@ class Producto:
                         lsPasoActual.insertar(("Mover Brazo -> Componente " + str(lineaActual.valor.componente_actual)), str(lineaActual.valor.lineaProduccion))
                             
                         if lineaActual.valor.componente_actual == objetivo_int:
-                            lineaActual.valor.parar = True
                             lineaActual.valor.ensamblando = int(lineaActual.valor.costo)
+                            lineaActual.valor.parar = True
+
+       
                                                         
                     elif lineaActual.valor.componente_actual > objetivo_int:
                         lineaActual.valor.componente_actual -= 1
@@ -82,23 +85,32 @@ class Producto:
                         lsPasoActual.insertar(("Mover Brazo -> Componente " + str(lineaActual.valor.componente_actual)), str(lineaActual.valor.lineaProduccion))
                             
                         if lineaActual.valor.componente_actual == objetivo_int:
-                            lineaActual.valor.parar = True
                             lineaActual.valor.ensamblando = int(lineaActual.valor.costo)
+                            lineaActual.valor.parar = True
                             
 
-                elif lineaActual.valor.parar and lineaActual.valor.lineaProduccion == int(ensambleActual.valor):    
+                elif lineaActual.valor.parar and (lineaActual.valor.lineaProduccion == int(ensambleActual.valor)):    
                     lineaActual.valor.ensamblando -= 1
                     if int(lineaActual.valor.ensamblando) == 0:
                         lineaActual.valor.dequeue()
                         print("Linea: ", str(lineaActual.valor.lineaProduccion) ," - Ensamblando -> Componente ", str(lineaActual.valor.componente_actual))
                         lsPasoActual.insertar(("Ensamblando -> Componente " + str(lineaActual.valor.componente_actual)), str(lineaActual.valor.lineaProduccion))
-                        lineaActual.valor.parar = False
+                        
                         done = True
+                        lineaActual.valor.parar = False
+                        
+                        # test = lineaActual.valor.peek()
+                        # test_int = int(test.valor.replace('C',""))
+                        
+                        # if (test_int == lineaActual.valor.componente_actual):
+                        #     lineaActual.valor.parar = True
+                        # else:
+                        #     lineaActual.valor.parar = False
                         
                     else:
                         print("Linea: ", str(lineaActual.valor.lineaProduccion) ," - Ensamblando -> Componente ", str(lineaActual.valor.componente_actual))
                         lsPasoActual.insertar(("Ensamblando -> Componente " + str(lineaActual.valor.componente_actual)), str(lineaActual.valor.lineaProduccion))
-                
+                        
                 lineaActual = lineaActual.siguiente
                     
             segundo += 1

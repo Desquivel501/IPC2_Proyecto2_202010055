@@ -7,17 +7,15 @@ from linked_list import LinkedList, listaProductos, listaLineas
 from linea_produccion import Linea_de_Produccion as LP
 from producto import Producto
 from maquina import Maquina
-import time
 import os
 from reportes import *
 
-
 import tkinter as tk
 import tkinter.ttk as ttk
-import Pmw
 from tkinter import messagebox
 
 nombreProducto = ""
+simulacionCargada =False
 
 def leerMaquina():
     filename = askopenfilename()
@@ -150,15 +148,25 @@ def leerSimulacion():
                 
             listadoProductos.insertar(producto.text)
     
-    first = True
-    aux = listadoProductos.head
-    while aux is not None:
-        if first:
-            cb_productos['values'] = aux.valor
-            first = False
-        else:
+    global simulacionCargada
+    
+    if simulacionCargada is False:
+        first = True
+        aux = listadoProductos.head
+        while aux is not None:
+            if first:
+                cb_productos['values'] = aux.valor
+                first = False
+            else:
+                cb_productos['values'] = (*cb_productos['values'], aux.valor)
+            aux = aux.siguiente
+    else:
+        aux = listadoProductos.head
+        while aux is not None:
             cb_productos['values'] = (*cb_productos['values'], aux.valor)
-        aux = aux.siguiente
+            aux = aux.siguiente
+        
+    simulacionCargada = True
     
 def iniciarSimulacion():
     

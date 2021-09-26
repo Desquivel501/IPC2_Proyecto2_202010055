@@ -3,87 +3,112 @@
   <ListadoProductos>
     <Producto>
       <Nombre>SmartWatch</Nombre>
-      <TiempoTotal>20</TiempoTotal>
+      <TiempoTotal>21</TiempoTotal>
       <ElaboracionOptima>
         <Tiempo NoSegundo="1">
           <lineaEnsamblaje NoLinea="1">Mover Brazo - Componente 1</lineaEnsamblaje>
           <lineaEnsamblaje NoLinea="2">Mover Brazo - Componente 1</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="3">Mover Brazo - Componente 1</lineaEnsamblaje>
         </Tiempo>
         <Tiempo NoSegundo="2">
           <lineaEnsamblaje NoLinea="1">Mover Brazo - Componente 2</lineaEnsamblaje>
           <lineaEnsamblaje NoLinea="2">Mover Brazo - Componente 2</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="3">Detenida</lineaEnsamblaje>
         </Tiempo>
         <Tiempo NoSegundo="3">
           <lineaEnsamblaje NoLinea="1">Ensamblando - Componente 2</lineaEnsamblaje>
           <lineaEnsamblaje NoLinea="2">Detenida</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="3">Detenida</lineaEnsamblaje>
         </Tiempo>
         <Tiempo NoSegundo="4">
           <lineaEnsamblaje NoLinea="1">Ensamblando - Componente 2</lineaEnsamblaje>
           <lineaEnsamblaje NoLinea="2">Detenida</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="3">Detenida</lineaEnsamblaje>
         </Tiempo>
         <Tiempo NoSegundo="5">
           <lineaEnsamblaje NoLinea="1">Mover Brazo - Componente 3</lineaEnsamblaje>
           <lineaEnsamblaje NoLinea="2">Mover Brazo - Componente 3</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="3">Detenida</lineaEnsamblaje>
         </Tiempo>
         <Tiempo NoSegundo="6">
           <lineaEnsamblaje NoLinea="1">Mover Brazo - Componente 4</lineaEnsamblaje>
           <lineaEnsamblaje NoLinea="2">Mover Brazo - Componente 4</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="3">Detenida</lineaEnsamblaje>
         </Tiempo>
         <Tiempo NoSegundo="7">
           <lineaEnsamblaje NoLinea="1">Ensamblando - Componente 4</lineaEnsamblaje>
           <lineaEnsamblaje NoLinea="2">Detenida</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="3">Detenida</lineaEnsamblaje>
         </Tiempo>
         <Tiempo NoSegundo="8">
           <lineaEnsamblaje NoLinea="1">Ensamblando - Componente 4</lineaEnsamblaje>
           <lineaEnsamblaje NoLinea="2">Detenida</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="3">Detenida</lineaEnsamblaje>
         </Tiempo>
         <Tiempo NoSegundo="9">
-          <lineaEnsamblaje NoLinea="1">Mover Brazo - Componente 3</lineaEnsamblaje>
-          <lineaEnsamblaje NoLinea="2">Mover Brazo - Componente 5</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="1">Mover Brazo - Componente 5</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="2">Detenida</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="3">Detenida</lineaEnsamblaje>
         </Tiempo>
         <Tiempo NoSegundo="10">
-          <lineaEnsamblaje NoLinea="1">Detenida</lineaEnsamblaje>
-          <lineaEnsamblaje NoLinea="2">Mover Brazo - Componente 6</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="1">Ensamblando - Componente 5</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="2">Detenida</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="3">Detenida</lineaEnsamblaje>
         </Tiempo>
         <Tiempo NoSegundo="11">
-          <lineaEnsamblaje NoLinea="1">Detenida</lineaEnsamblaje>
-          <lineaEnsamblaje NoLinea="2">Ensamblando - Componente 6</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="1">Ensamblando - Componente 5</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="2">Detenida</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="3">Detenida</lineaEnsamblaje>
         </Tiempo>
         <Tiempo NoSegundo="12">
-          <lineaEnsamblaje NoLinea="1">Detenida</lineaEnsamblaje>
-          <lineaEnsamblaje NoLinea="2">Ensamblando - Componente 6</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="1">Mover Brazo - Componente 4</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="2">Detenida</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="3">Detenida</lineaEnsamblaje>
         </Tiempo>
         <Tiempo NoSegundo="13">
-          <lineaEnsamblaje NoLinea="1">Detenida</lineaEnsamblaje>
-          <lineaEnsamblaje NoLinea="2">Ensamblando - Componente 6</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="1">Mover Brazo - Componente 3</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="2">Detenida</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="3">Detenida</lineaEnsamblaje>
         </Tiempo>
         <Tiempo NoSegundo="14">
           <lineaEnsamblaje NoLinea="1">Ensamblando - Componente 3</lineaEnsamblaje>
           <lineaEnsamblaje NoLinea="2">Detenida</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="3">Detenida</lineaEnsamblaje>
         </Tiempo>
         <Tiempo NoSegundo="15">
           <lineaEnsamblaje NoLinea="1">Ensamblando - Componente 3</lineaEnsamblaje>
           <lineaEnsamblaje NoLinea="2">Detenida</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="3">Detenida</lineaEnsamblaje>
         </Tiempo>
         <Tiempo NoSegundo="16">
-          <lineaEnsamblaje NoLinea="1">Operacion Concluida</lineaEnsamblaje>
-          <lineaEnsamblaje NoLinea="2">Mover Brazo - Componente 5</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="1">Detenida</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="2">Ensamblando - Componente 4</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="3">Detenida</lineaEnsamblaje>
         </Tiempo>
         <Tiempo NoSegundo="17">
-          <lineaEnsamblaje NoLinea="1">Operacion Concluida</lineaEnsamblaje>
-          <lineaEnsamblaje NoLinea="2">Mover Brazo - Componente 4</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="1">Detenida</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="2">Operacion Concluida</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="3">Ensamblando - Componente 1</lineaEnsamblaje>
         </Tiempo>
         <Tiempo NoSegundo="18">
-          <lineaEnsamblaje NoLinea="1">Operacion Concluida</lineaEnsamblaje>
-          <lineaEnsamblaje NoLinea="2">Ensamblando - Componente 4</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="1">Mover Brazo - Componente 2</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="2">Operacion Concluida</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="3">Operacion Concluida</lineaEnsamblaje>
         </Tiempo>
         <Tiempo NoSegundo="19">
-          <lineaEnsamblaje NoLinea="1">Operacion Concluida</lineaEnsamblaje>
-          <lineaEnsamblaje NoLinea="2">Ensamblando - Componente 4</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="1">Mover Brazo - Componente 1</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="2">Operacion Concluida</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="3">Operacion Concluida</lineaEnsamblaje>
         </Tiempo>
         <Tiempo NoSegundo="20">
-          <lineaEnsamblaje NoLinea="1">Operacion Concluida</lineaEnsamblaje>
-          <lineaEnsamblaje NoLinea="2">Ensamblando - Componente 4</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="1">Ensamblando - Componente 1</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="2">Operacion Concluida</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="3">Operacion Concluida</lineaEnsamblaje>
+        </Tiempo>
+        <Tiempo NoSegundo="21">
+          <lineaEnsamblaje NoLinea="1">Ensamblando - Componente 1</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="2">Operacion Concluida</lineaEnsamblaje>
+          <lineaEnsamblaje NoLinea="3">Operacion Concluida</lineaEnsamblaje>
         </Tiempo>
       </ElaboracionOptima>
     </Producto>
