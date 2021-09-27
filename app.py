@@ -111,7 +111,7 @@ def elaborarProducto():
     
     noFila = 2
     noColumna = 0
-    
+    cont = 0
     fila = pasos.head
     while fila is not None:
         columna = fila.valor.head
@@ -125,6 +125,7 @@ def elaborarProducto():
         noFila += 1
         noColumna = 0
         fila = fila.siguiente
+        cont += 1
         
     canvas.create_window((0,0), window=frame_buttons, anchor=tk.NW)
     frame_buttons.update_idletasks()
@@ -132,6 +133,10 @@ def elaborarProducto():
     bbox = canvas.bbox("all")
     canvas.configure(scrollregion=bbox, width=680, height=600)
     
+    texto = "La maquina tarda " + str(cont) + " segundos en contruir el producto " + str(nombre)
+    
+    messagebox.showinfo(message=texto, title="Completado")
+       
 def leerSimulacion():
     global listadoProductos
     listadoProductos = LinkedList()
